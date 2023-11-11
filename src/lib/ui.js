@@ -179,7 +179,6 @@ export async function renderDetails(parentElement, id) {
       el('h1', { class: 'launch-name' }, result?.name ?? ''),
       el('p', {class: 'window'}, `Gluggi opnast: ${result?.window_start}`),
       el('p', {class: 'window'}, `Gluggi lokast: ${result?.window_end}`),
-      el('img', { src: result?.image }),
       el('h3', { class: 'mission-name' }, `Geimferð: ${result?.mission.name}`),
       el(
         'p',
@@ -191,9 +190,8 @@ export async function renderDetails(parentElement, id) {
         'p',
         { class: 'status-description' },
         result?.status.description ?? '',
-      )
+      ),
+      el('img', { src: result?.image })
     ),
   );
-
-  container.appendChild(el('pre', {}, JSON.stringify(result, null, 2)));
 }
