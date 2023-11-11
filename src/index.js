@@ -1,5 +1,4 @@
-import {empty} from './lib/elements.js';
-import {renderDetails, renderFrontpage, searchAndRender} from './lib/ui.js';
+import { renderDetails, renderFrontpage, searchAndRender } from './lib/ui.js';
 
 /**
  * Fall sem keyrir við leit.
@@ -7,22 +6,22 @@ import {renderDetails, renderFrontpage, searchAndRender} from './lib/ui.js';
  * @returns {Promise<void>}
  */
 async function onSearch(e) {
-    /* TODO útfæra */
-    e.preventDefault();
+  /* TODO útfæra */
+  e.preventDefault();
 
-    const {target} = e;
-    const formData = new FormData(target);
-    const query = formData.get('query');
+  const { target } = e;
+  const formData = new FormData(target);
+  const query = formData.get('query');
 
-    if (query) {
-        await searchAndRender(
-            document.querySelector('main'), 
-            document.querySelector('#search-form'), 
-            query
-        );
+  if (query) {
+    await searchAndRender(
+      document.querySelector('main'),
+      document.querySelector('#search-form'),
+      query,
+    );
 
-        window.history.pushState({}, '', `?query=${query}`)
-    }
+    window.history.pushState({}, '', `?query=${query}`);
+  }
 }
 
 /**
@@ -31,22 +30,23 @@ async function onSearch(e) {
  * leitarniðurstöðum ef `query` er gefið.
  */
 function route() {
-    /* TODO athuga hvaða síðu á að birta og birta */
+  /* TODO athuga hvaða síðu á að birta og birta */
 
-    const {search} = document.location;
-    const params = new URLSearchParams(search);
+  const { search } = document.location;
+  const params = new URLSearchParams(search);
 
-    if (params.has('id')) {
-        renderDetails(document.body, params.get('id'));
-    } else {
-        renderFrontpage(document.body, onSearch, params.get('query') ?? undefined);
-    }
+  if (params.has('id')) {
+    renderDetails(document.body, params.get('id'));
+  } else {
+    renderFrontpage(document.body, onSearch, params.get('query') ?? undefined);
+  }
 }
 
 // Bregst við því þegar við notum vafra til að fara til baka eða áfram.
 window.onpopstate = () => {
-    /* TODO bregðast við */
-    console.log('pop state')
+  /* TODO bregðast við */
+  // eslint-disable-next-line no-console
+  console.log('pop state');
 };
 
 // Athugum í byrjun hvað eigi að birta.

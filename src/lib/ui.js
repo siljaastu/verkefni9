@@ -14,7 +14,7 @@ export function renderSearchForm(searchHandler, query = undefined) {
     'form',
     { id: 'search-form' },
     el('input', { name: 'query', value: query ?? '' }),
-    el('button', {}, 'Leita'),
+    el('button', { class: 'button' }, 'Leita'),
   );
 
   form.addEventListener('submit', searchHandler);
@@ -150,8 +150,8 @@ export async function renderDetails(parentElement, id) {
     el('a', { href: '/' }, 'Til baka'),
   );
 
-  backElement.addEventListener('click', (e) => { 
-    e.preventDefault(); 
+  backElement.addEventListener('click', (e) => {
+    e.preventDefault();
     window.history.back();
   });
 
@@ -177,8 +177,8 @@ export async function renderDetails(parentElement, id) {
       'div',
       { class: 'launch-details' },
       el('h1', { class: 'launch-name' }, result?.name ?? ''),
-      el('p', {class: 'window'}, `Gluggi opnast: ${result?.window_start}`),
-      el('p', {class: 'window'}, `Gluggi lokast: ${result?.window_end}`),
+      el('p', { class: 'window' }, `Gluggi opnast: ${result?.window_start}`),
+      el('p', { class: 'window' }, `Gluggi lokast: ${result?.window_end}`),
       el('h3', { class: 'mission-name' }, `Geimferð: ${result?.mission.name}`),
       el(
         'p',
@@ -191,7 +191,7 @@ export async function renderDetails(parentElement, id) {
         { class: 'status-description' },
         result?.status.description ?? '',
       ),
-      el('img', { src: result?.image })
+      el('img', { src: result?.image }),
     ),
   );
 }

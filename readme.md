@@ -136,4 +136,5 @@ Sett verða fyrir tíu minni verkefni þar sem átta bestu gilda 5% hvert, samta
 Sett verða fyrir tvö hópverkefni þar sem hvort um sig gildir 10%, samtals 20% af lokaeinkunn.
 
 > Útgáfa 0.2 (bæta við gefnu efni)
+
 # verkefni9

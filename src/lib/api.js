@@ -43,29 +43,29 @@ export async function searchLaunches(query) {
     const response = await fetch(url);
 
     if (!response.ok) {
-        console.error('Villa kom upp við að sækja gögn, ekki 200 staða');
-        return null;
+      console.error('Villa kom upp við að sækja gögn, ekki 200 staða');
+      return null;
     }
 
     if (response.ok) {
-        const launches = await response.json();
+      const launches = await response.json();
 
-        return launches.results.map((launch) => {
-            const { id, name, status, mission } = launch;
-            const { name: statusName, description, abbrev } = status;
+      return launches.results.map((launch) => {
+        const { id, name, status, mission } = launch;
+        const { name: statusName, description, abbrev } = status;
 
-            return {
-            id,
-            name,
-            status: {
-                name: statusName,
-                description,
-                abbrev,
-            },
-            mission,
-            };
-        });
-    } 
+        return {
+          id,
+          name,
+          status: {
+            name: statusName,
+            description,
+            abbrev,
+          },
+          mission,
+        };
+      });
+    }
   } catch (e) {
     console.error('Villa kom upp við að sækja gögn');
   }

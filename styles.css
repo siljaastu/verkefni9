@@ -42,6 +42,7 @@ input[type="number"] {
 
 button {
   padding-inline: calc(var(--spacing) / 2);
+  margin-left: 1rem;
 }
 
 h1 {
@@ -78,7 +79,7 @@ a {
 
 li:hover {
   background-color: #ededed;
-} 
+}
 
 h3 {
   margin: 1rem 0;
