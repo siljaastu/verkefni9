@@ -87,3 +87,7 @@ h3 {
 .launch-details .window {
   margin: 0.5rem 0;
 }
+
+.launch-details img {
+  margin-top: 1rem;
+}
